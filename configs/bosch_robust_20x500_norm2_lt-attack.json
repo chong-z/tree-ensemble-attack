@@ -1,0 +1,16 @@
+{
+  "num_threads": 20,
+  "collect_histogram": false,
+  "enable_early_return": true,
+  "inputs": "data/bosch.test",
+  "train_data": "raw_data/bosch.train",
+  "model": "models/bosch.json",
+  "num_classes": 2,
+  "num_features": 968,
+  "feature_start": 0,
+  "offset": 0,
+  "num_point": 500,
+  "num_attack_per_point": 20,
+  "norm_type": 2,
+  "search_mode": "lt-attack"
+}

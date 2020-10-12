@@ -1,0 +1,13 @@
+{
+  "num_threads": 20,
+  "enable_early_return": true,
+  "inputs": "data/covtype.scale01.test0",
+  "model": "tree_verification_models/covtype_unrobust/0080.json",
+  "num_classes": 7,
+  "num_features": 54,
+  "feature_start": 1,
+  "num_point": 500,
+  "num_attack_per_point": 20,
+  "norm_type": 2,
+  "search_mode": "lt-attack"
+}

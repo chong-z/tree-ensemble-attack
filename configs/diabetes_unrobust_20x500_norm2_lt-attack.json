@@ -1,0 +1,13 @@
+{
+  "num_threads": 20,
+  "enable_early_return": true,
+  "inputs": "data/diabetes_scale0.test",
+  "model": "tree_verification_models/diabetes_unrobust/0020.json",
+  "num_classes": 2,
+  "num_features": 8,
+  "feature_start": 1,
+  "num_point": 500,
+  "num_attack_per_point": 20,
+  "norm_type": 2,
+  "search_mode": "lt-attack"
+}

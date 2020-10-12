@@ -1,0 +1,13 @@
+{
+  "num_threads": 20,
+  "enable_early_return": true,
+  "inputs": "data/binary_mnist0.t",
+  "model": "tree_verification_models/binary_mnist_unrobust/1000.json",
+  "num_classes": 2,
+  "num_features": 784,
+  "feature_start": 0,
+  "num_point": 500,
+  "num_attack_per_point": 20,
+  "norm_type": 2,
+  "search_mode": "lt-attack"
+}

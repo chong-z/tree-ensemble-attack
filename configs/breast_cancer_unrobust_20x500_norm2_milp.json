@@ -1,0 +1,12 @@
+{
+  "num_threads": 20,
+  "inputs": "data/breast_cancer_scale0.test",
+  "model": "tree_verification_models/breast_cancer_unrobust/0004.json",
+  "num_classes": 2,
+  "num_features": 10,
+  "feature_start": 1,
+  "num_point": 500,
+  "num_attack_per_point": 20,
+  "norm_type": 2,
+  "search_mode": "milp"
+}
