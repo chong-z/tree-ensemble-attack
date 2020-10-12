@@ -1,7 +1,8 @@
 # LT-Attack Setup
 ## Ubuntu 20.04
 ```
-cd lt-attack
+git clone git@github.com:chong-z/tree-ensemble-attack.git
+cd tree-ensemble-attack
 
 # Requires libboost>=1.66 for |thread_pool|.
 sudo apt install libboost-all-dev
