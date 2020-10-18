@@ -1,0 +1,14 @@
+lt_attack
+debug_lt_attack
+results
+bench_results
+bench_configs
+raw_data
+trimmed_data
+milp_adv
+tmp
+tree_verification_models/
+*.o
+.DS_Store
+.gdb_history
+*__pycache__*

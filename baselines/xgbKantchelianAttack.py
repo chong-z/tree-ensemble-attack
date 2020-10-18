@@ -1,5 +1,5 @@
 ############################################################
-### Forked from Wang et al., 2020.
+### Forked from https://github.com/YihanWang617/On-ell_p-Robustness-of-Ensemble-Stumps-and-Trees
 ############################################################
 
 import pprint

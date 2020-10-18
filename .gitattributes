@@ -1,0 +1,9 @@
+*.md diff
+*.json linguist-vendored
+*.model linguist-vendored
+*.test0 linguist-vendored
+*.t linguist-vendored
+*.test linguist-vendored
+*.libsvm linguist-vendored
+baselines/* linguist-vendored
+nlohmann/* linguist-vendored
