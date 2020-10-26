@@ -1,5 +1,13 @@
-# LT-Attack Setup
-## Ubuntu 20.04
+# An Efficient Adversarial Attack for Tree Ensembles
+
+This is the official GitHub repository for the following paper:
+https://arxiv.org/pdf/2010.11598.pdf
+
+![Thumbnail of the paper](https://github.com/chong-z/tree-ensemble-attack/raw/main/img/paper-image-large.png)
+
+
+## LT-Attack Setup
+### Ubuntu 20.04
 ```
 git clone git@github.com:chong-z/tree-ensemble-attack.git
 cd tree-ensemble-attack
@@ -23,7 +31,7 @@ make
 ./lt_attack configs/breast_cancer_unrobust-rf_20x100_norm2_lt-attack.json
 ```
 
-## Sample Output
+### Sample Output
 ```
 //...
 ===== Attack result for example 500/500 Norm(2)=0.235702 =====
@@ -39,7 +47,7 @@ Average Norms: Norm(-1)=0.235932 Norm(1)=0.369484 Norm(2)=0.282763
 ## Time per point: 0.00141016
 ```
 
-# Configuration File Parameters
+## Configuration File Parameters
 We provide sample config files in `config/` which use the following parameters:
 
 - `search_mode`: The attack method to use. Choose from `'lt-attack'` (ours), `'naive-leaf'`, `'naive-feature'`.
@@ -56,21 +64,21 @@ Additional dataset related parameters:
 - `num_features`: Number of features in the dataset.
 - `feature_start`: The index of the first feature, could be 0 or 1 on different datasets.
 
-# Baselines
-## SignOPT, HSJA, and Cube
+## Baselines
+### SignOPT, HSJA, and Cube
 ```
 pip3 install xgboost==1.0.2 sklearn
 # Choose |'search_mode'| from 'signopt', 'hsja', and 'cube'. We provide a few sample configs:
 python3 baselines/test_attack_cpu.py --config_path=configs/breast_cancer_unrobust_20x500_norm2_cube.json
 ```
 
-## MILP
+### MILP
 ```
 # Use |'search_mode': 'milp'|. Requires the Gurobi Solver installed.
 python3 baselines/xgbKantchelianAttack.py --config_path=configs/breast_cancer_unrobust_20x500_norm2_milp.json
 ```
 
-## RBA-Appr
+### RBA-Appr
 ```
 # RBA-Appr requires training data which can be downloaded from https://github.com/chenhongge/RobustTrees.
 # [ICML 2019] Hongge Chen, Huan Zhang, Duane Boning, and Cho-Jui Hsieh, Robust Decision Trees Against Adversarial Examples
@@ -87,14 +95,14 @@ cd ..
 ```
 
 
-# Known Issues
+## Known Issues
 The JSON dump of XGBoost models offer precision up to 8 digits, however the difference between certain feature
 split threholds may be smaller than 1e-8 in the original XGBoost model. For this reason the model created from
 the JSON dump may produce a different prediction on certain examples than the original XGBoost model, and we
 manually verify that each produced adversarial example is valid under the JSON dump.
 
 
-# Credits
+## Credits
 1. `nlohmann/json*`: https://github.com/nlohmann/json.
 2. `.clang-format`: https://cs.chromium.org/chromium/src/.clang-format.
 3. See paper for the full list of references.
