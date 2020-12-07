@@ -1,33 +1,37 @@
 # An Efficient Adversarial Attack for Tree Ensembles
 
-This is the official GitHub repository for the following paper:
-https://arxiv.org/pdf/2010.11598.pdf
+We study the problem of efficient adversarial attacks on tree based ensembles such as gradient boosting decision trees (GBDTs) and random forests (RFs). Since these models are non-continuous step functions and gradient does not exist, most existing efficient adversarial attacks are not applicable. In our work, we transform the attack problem into a discrete search problem specially designed for tree ensembles, where the goal is to find a valid "leaf tuple" that leads to mis-classification while having the shortest distance to the original input. With this formulation, we show that a simple yet effective greedy algorithm can be applied to iteratively optimize the adversarial example by moving the leaf tuple to its neighborhood within hamming distance 1. More details can be found in our paper:
 
-![Thumbnail of the paper](https://github.com/chong-z/tree-ensemble-attack/raw/main/img/paper-image-large.png)
+_Chong Zhang, Huan Zhang, Cho-Jui Hsieh_, "An Efficient Adversarial Attack for Tree Ensembles", NeurIPS 2020 [[poster session]](https://neurips.cc/virtual/2020/protected/poster_ba3e9b6a519cfddc560b5d53210df1bd.html)
+
+<img src="https://github.com/chong-z/tree-ensemble-attack/raw/main/img/paper-image-large.png" alt="Thumbnail of the paper" width="500px">
 
 
 ## LT-Attack Setup
-### Ubuntu 20.04
+### Installation on Ubuntu 20.04
+Our code requires `libboost>=1.66` for `thread_pool`:
+```
+sudo apt install libboost-all-dev
+```
+
+Clone the repo and compile:
 ```
 git clone git@github.com:chong-z/tree-ensemble-attack.git
 cd tree-ensemble-attack
+make
+```
 
-# Requires libboost>=1.66 for |thread_pool|.
-sudo apt install libboost-all-dev
-
-# We use the pre-trained GBDT models from https://github.com/chenhongge/treeVerification.
-# [NeurIPS 2019] H. Chen*, H. Zhang*, S. Si, Y. Li, D. Boning and C.-J. Hsieh, Robustness Verification of Tree-based Models
-# The author published their pre-trained models in the URL below.
+### Reproduce Results in the Paper
+Attack the standard (natural) GBDT model (https://github.com/chenhongge/treeVerification) for the breast_cancer dataset. Construct adversarial examples on L-2 norm perturbation, using 20 threads on 500 test examples:
+```
 wget http://download.huan-zhang.com/models/tree-verify/tree_verification_models.tar.bz2
 tar jxvf tree_verification_models.tar.bz2
 
-# Attack the standard (natural) GBDT model for the breast_cancer dataset. Construct
-# adversarial examples on L-2 norm perturbation, using 20 threads on 500 test examples.
-make
 ./lt_attack configs/breast_cancer_unrobust_20x500_norm2_lt-attack.json
+```
 
-# Attack the standard (natural) RF model for the breast_cancer dataset. Construct
-# adversarial examples on L-2 norm perturbation, using 20 threads on 100 test examples.
+Attack the standard (natural) RF model for the breast_cancer dataset. Construct adversarial examples on L-2 norm perturbation, using 20 threads on 100 test examples:
+```
 ./lt_attack configs/breast_cancer_unrobust-rf_20x100_norm2_lt-attack.json
 ```
 
@@ -64,7 +68,7 @@ Additional dataset related parameters:
 - `num_features`: Number of features in the dataset.
 - `feature_start`: The index of the first feature, could be 0 or 1 on different datasets.
 
-## Baselines
+## Run Baselines
 ### SignOPT, HSJA, and Cube
 ```
 pip3 install xgboost==1.0.2 sklearn
