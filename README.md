@@ -6,7 +6,6 @@ _Chong Zhang, Huan Zhang, Cho-Jui Hsieh_, "An Efficient Adversarial Attack for T
 
 <img src="https://github.com/chong-z/tree-ensemble-attack/raw/main/img/paper-image-large.png" alt="Thumbnail of the paper" width="500px">
 
-
 ## LT-Attack Setup
 ### Installation on Ubuntu 20.04
 Our code requires `libboost>=1.66` for `thread_pool`:
@@ -104,6 +103,24 @@ The JSON dump of XGBoost models offer precision up to 8 digits, however the diff
 split threholds may be smaller than 1e-8 in the original XGBoost model. For this reason the model created from
 the JSON dump may produce a different prediction on certain examples than the original XGBoost model, and we
 manually verify that each produced adversarial example is valid under the JSON dump.
+
+
+## Bibtex
+
+```
+@inproceedings{zhang2020efficient,
+ author = {Zhang, Chong and Zhang, Huan and Hsieh, Cho-Jui},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {H. Larochelle and M. Ranzato and R. Hadsell and M. F. Balcan and H. Lin},
+ pages = {16165--16176},
+ publisher = {Curran Associates, Inc.},
+ title = {An Efficient Adversarial Attack for Tree Ensembles},
+ url = {https://proceedings.neurips.cc/paper/2020/file/ba3e9b6a519cfddc560b5d53210df1bd-Paper.pdf},
+ volume = {33},
+ year = {2020}
+}
+```
+
 
 
 ## Credits
